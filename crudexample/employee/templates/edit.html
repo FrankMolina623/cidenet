@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+    {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+{% block content%}
+
+<form method="POST" class="post-form" action="/update/{{employee.id}}">  
+        {% csrf_token %}  
+    <div class="container">  
+<br>  
+
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <h3>Actualizar datos</h3>  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Primer Apellido:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="firstLastname" id="id_firstLastname" required maxlength="50" value="{{ employee.firstLastname }}"/>
+        {% if employee.firstLastname.errors %}
+          {{employee.firstLastname.errors}}
+        {%endif%}  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Segundo Apellido:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="secondLastname" id="id_secondLastname" required maxlength="50" value="{{ employee.secondLastname }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Primer Nombre:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="firstName" id="id_firstName" required maxlength="50" value="{{ employee.firstName }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Otro Nombre:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="otherName" id="id_otherName" required maxlength="50" value="{{ employee.otherName }}" />  
+    </div>  
+    <div class="form-group row">  
+      <label class="col-sm-2 col-form-label">País del contrato:</label>  
+      <div class="col-sm-4">  
+          <input type="text" name="contractCountry" id="id_contractCountry" required maxlength="50" value="{{ employee.contractCountry }}" />  
+    </div>  
+    <div class="form-group row">  
+      <label class="col-sm-2 col-form-label">Tipo de identificación:</label>  
+      <div class="col-sm-4">  
+          <input type="text" name="id_type" id="id_id_type" required maxlength="50" value="{{ employee.id_type }}" />  
+    </div> 
+    <div class="form-group row">  
+      <label class="col-sm-2 col-form-label">Número de identificación:</label>  
+      <div class="col-sm-4">  
+          <input type="text" class="form-control" name="id_number" id="id_id_number" required maxlength="50" value="{{ employee.id_number }}" />  
+    </div> 
+    <div class="form-group row">  
+      <label class="col-sm-2 col-form-label">Correo:</label>  
+      <div class="col-sm-4">  
+          <input type="email" class="form-control" name="email" id="id_email" required maxlength="50" value="{{ employee.email }}" />  
+    </div> 
+    <div class="form-group row">  
+      <label class="col-sm-2 col-form-label">Fecha de entrada:</label>  
+      <div class="col-sm-4">  
+          <input type="text" name="date_of_entry" id="id_date_of_entry" required maxlength="50" value="{{ employee.date_of_entry }}" />  
+    </div> 
+    <div class="form-group row">  
+      <label class="col-sm-2 col-form-label">Área de la compañía:</label>  
+      <div class="col-sm-4">  
+          <input type="text" name="company_area" id="id_company_area" required maxlength="50" value="{{ employee.company_area }}" />  
+    </div> 
+    <div class="form-group row">  
+      <label class="col-sm-2 col-form-label">Estado:</label>  
+      <div class="col-sm-4">  
+          <input type="text" name="state" id="id_state" required maxlength="50" value="{{ employee.state }}" />  
+    </div> 
+    <div class="form-group row">  
+      <label class="col-sm-2 col-form-label">Fecha de registro:</label>  
+      <div class="col-sm-4">  
+          <input type="text" name="state" id="id_state" required maxlength="50" value="{{ employee.date_of_entry }}" />  
+    </div> 
+
+    <button type="submit" class="btn btn-success">Actualizar</button>  
+    </div>  
+  </div>  
+    </div>  
+</form>  
+{% endblock%}
+</body>  
+</html>
