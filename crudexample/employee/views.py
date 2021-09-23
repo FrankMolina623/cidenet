@@ -26,6 +26,9 @@ def edit(request, id):
 def update(request, id):  
     employee = Employee.objects.get(id=id)  
     form = EmployeeForm(request.POST, instance = employee)  
+    print(request)
+    print(type(request))
+    print(form.errors)
     if form.is_valid():  
         form.save()  
         return redirect("/show")  
