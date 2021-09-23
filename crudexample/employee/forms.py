@@ -228,6 +228,7 @@ class EmployeeForm(forms.ModelForm):
             i = 1
             while  Employee.objects.filter(email = email).exists():
                 email = first + '.' + second + '.'+ id + f'{i}@cidenet.con.us'
+                i=+1
         except TypeError:
             print("ingresando email")
             email = self.cleaned_data.get('email')
@@ -235,11 +236,3 @@ class EmployeeForm(forms.ModelForm):
         return email
 
 
-
-    # def clean_date_of_entry(self):
-    #     date_of_entry =self.cleaned_data.get('date_of_entry')
-    #     if date_of_entry > datetime.now():
-    #         raise forms.ValidationError("La fecha de ingreso no puede ser mayor a la fecha actual")
-
-
-    #     return date_of_entry
